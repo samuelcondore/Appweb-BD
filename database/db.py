@@ -73,3 +73,14 @@ def total_over_30(min: int = 500, page: int = 0, page_size: int = 20):
     result = session.execute(text(q), {"m": min, "page": page*page_size, "items": page_size}).all()
     session.close()
     return result
+
+def total_total_over_30(min: int = 500):
+    session = SessionLocal()
+    q = "SELECT COUNT(MRUN_A)"
+    q += " FROM public.alumnodetalle"
+    q += " WHERE ANIO_NAC_ALU <= 1995"
+    q += " GROUP BY NOMB_I, JORN"
+    q += " HAVING COUNT(MRUN_A) >= :m;"
+    result = session.execute(text(q), {"m": min}).one()
+    session.close()
+    return result
