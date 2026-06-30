@@ -58,6 +58,18 @@ def over_thirty():
         body = {"total_paginas": total_paginas,
                 "data": [dict(row._mapping) for row in data]}
         return jsonify(body)
+
+@app.route("/carreras_caras", methods=["GET", "POST"])
+def carreras_caras():
+    if request.method == "GET":
+        return render_template("carreras_caras.html")
+    else:
+        data = request.get_json()
+        nivel = data.get("nivel")
+        data = db.get_carreras_caras(nivel)
+        print([dict(row._mapping) for row in data])
+        body = {"result": [dict(row._mapping) for row in data]}
+        return jsonify(body)
     
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
