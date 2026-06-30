@@ -72,7 +72,7 @@ async function fetchQueryResults(query, j, n, m) {
         page: window.mypage
     }
     try {
-        const response = await fetch('/', {
+        const response = await fetch('/carreras', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
