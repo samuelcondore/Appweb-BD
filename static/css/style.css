@@ -1,0 +1,80 @@
+:root {
+    --background-color: #F2EAE0;
+    --primary-color: #B4D3D9;
+    --alt-primary-color: #75abb6;
+    --secondary-color: #BDA6CE;
+    --alt-secondary-color: #9B8EC7;
+}
+
+.searchbar {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    padding: 8px;
+    margin: 8px 0;
+    border-radius: 4px;
+    border: 2px solid #ccc;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 50% 18% 18% 14%;
+}
+
+select {
+    grid-row: 1 / 2;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background-color);
+    font-family: "Roboto", sans-serif;
+    margin: 0px;
+}
+
+main {
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.navbar {
+    background-color: var(--primary-color);
+    display: flex;
+    flex-flow: row wrap;
+    justify-items: flex-start;
+}
+
+.navbar a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 15px;
+}
+
+.navbar a:hover {
+    background-color: var(--alt-primary-color);
+}
+
+.paginator {
+    padding: 5px;
+    color: black;
+    margin: auto;
+    background-color: var(--primary-color);
+    border: none;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: large;
+}
+.paginator:hover {
+    background-color: var(--alt-primary-color);
+}
+

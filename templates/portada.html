@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title %} Portada {% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/table.css') }}">
+{% endblock %}
+
+{% block content %}
+<div style="display: grid; place-items: center;">
+<div class="container">
+    <input class="searchbar" type="text" id="searchbar" name="searchbar" placeholder="Buscar por nombre, sede o Institución...">
+    <select id="jornada" style="grid-column: 2 / 3;">
+        <option value="">Elige jornada</option>
+        <option value="Vespertina">Vespertina</option>
+        <option value="Diurna">Diurna</option>
+        <option value="A Distancia">A Distancia</option>
+        <option value="Otra">Otra</option>
+        <option value="Semipresencial">Semipresencial</option>
+    </select>
+    <select id="modalidad" style="grid-column: 3 / 4;">
+        <option value="">Elige modalidad</option>
+        <option value="Presencial">Presencial</option>
+        <option value="No Presencial">No Presencial</option>
+        <option value="Semipresencial">Semipresencial</option>
+    </select>
+    <select id="nivel" style="grid-column: 4 / 5;">
+        <option value="">Elige nivel</option>
+        <option value="Profesional Con Licenciatura">Profesional Con Licenciatura</option>
+        <option value="Profesional Sin Licenciatura">Profesional Sin Licenciatura</option>
+        <option value="Técnico de Nivel Superior">Técnico de Nivel Superior</option>
+        <option value="Licenciatura No Conducente a Título">Licenciatura No Conducente a Título</option>
+        <option value="Bachillerato, Ciclo Inicial o Plan Común">Bachillerato, Ciclo Inicial o Plan Común</option>
+        <option value="Postítulo">Postítulo</option>
+        <option value="Diplomado (desde un semestre)">Diplomado (desde un semestre)</option>
+        <option value="Doctorado">Doctorado</option>
+        <option value="Especialidad Médica U Odontológica">Especialidad Médica U Odontológica</option>
+        <option value="Magister">Magister</option>
+    </select>
+    <table class="responsive-table">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Jornada</th>
+                <th scope="col">Sede</th>
+                <th scope="col">Institución</th>
+                <th scope="col">Modalidad</th>
+                <th scope="col">Duración</th>
+                <th scope="col">Nivel</th>
+                <th scope="col">Valor arancel</th>
+                <th scope="col">Valor matrícula</th>
+                <th scope="col">Formato valores</th>
+            </tr>
+        </thead>
+        <tbody id="search_results">
+            <tr>
+                <td style="text-align: center;" colspan="10" >No hay resultados</td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>
+<div id="paginators"></div>
+</div>
+{% endblock %}
+{% block javascript %}
+<script src="static/js/buscador.js"></script>
+{% endblock %}
