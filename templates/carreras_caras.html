@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %} Portada {% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/table.css') }}">
+{% endblock %}
+
+{% block content %}
+<div style="display: grid; place-items: center;">
+    <h1>Distribución de género según tipo de institución</h1>
+    <div class="container-gen">
+        <select id="nivel" style="grid-column: 1 / 2; grid-row: 1 / 2">
+            <option value="">Elige nivel</option>
+            <option value="Profesional Con Licenciatura">Profesional Con Licenciatura</option>
+            <option value="Profesional Sin Licenciatura">Profesional Sin Licenciatura</option>
+            <option value="Técnico de Nivel Superior">Técnico de Nivel Superior</option>
+            <option value="Licenciatura No Conducente a Título">Licenciatura No Conducente a Título</option>
+            <option value="Bachillerato, Ciclo Inicial o Plan Común">Bachillerato, Ciclo Inicial o Plan Común</option>
+            <option value="Postítulo">Postítulo</option>
+            <option value="Diplomado (desde un semestre)">Diplomado (desde un semestre)</option>
+            <option value="Doctorado">Doctorado</option>
+            <option value="Especialidad Médica U Odontológica">Especialidad Médica U Odontológica</option>
+            <option value="Magister">Magister</option>
+        </select>
+        <table class="responsive-table" style="grid-column: 1 / 2; grid-row: 2 / 3">
+            <thead>
+                <tr>
+                    <th scope="col">Carrera</th>
+                    <th scope="col">Institución</th>
+                    <th scope="col">Arancel promedio</th>
+                </tr>
+            </thead>
+            <tbody id="search_results">
+                <tr>
+                    <td style="text-align: center;" colspan="3" >Seleccione un nivel de carrera</td>
+                </tr>
+            </tbody>
+        </table> 
+    </div>
+
+</div>
+{% endblock %}
+{% block javascript %}
+<script src="static/js/carreras_caras.js"></script>
+{% endblock %}
