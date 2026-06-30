@@ -50,7 +50,7 @@ async function renderQueryResult(m) {
         table.innerHTML = "<tr><td style=\"text-align: center;\" colspan=\"3\" >Seleccione un mínimo de alumnos</td></tr>";
         return;
     }
-    const queryResult = await fetchQueryResults(query, j, n, m);
+    const queryResult = await fetchQueryResults(m);
     if (queryResult.data === undefined || queryResult.data.length === 0){
         table.innerHTML = "<tr><td style=\"text-align: center;\" colspan=\"3\" >Seleccione un mínimo de alumnos</td></tr>";
     } else {
