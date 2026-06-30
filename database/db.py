@@ -3,7 +3,7 @@ from datetime import datetime, date, timedelta
 from sqlalchemy import create_engine, Column, Integer, BigInteger, String, DateTime, Enum, Text, ForeignKey, null, text
 from sqlalchemy.orm import sessionmaker, declarative_base, relationship
 
-DB_NAME = "hito3"
+DB_NAME = "public"
 DB_USERNAME = "cc5002"
 DB_PASSWORD = "programacionweb"
 DB_HOST = "localhost"
