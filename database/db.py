@@ -18,7 +18,7 @@ Base = declarative_base()
 
 def free_search_carrera(query: str = "", jornada: str = "", modalidad: str = "", page: int = 0, page_size: int = 20, nivel: str = ""):
     session = SessionLocal()
-    q = "SELECT C.* FROM hito3.carrera C WHERE 1=1"
+    q = "SELECT C.* FROM public.carrera C WHERE 1=1"
     if query:
         q += " AND (C.NOMB_CARRERA LIKE :q OR C.NOMB_I LIKE :q OR C.NOMB_S LIKE :q)"
     if jornada:
@@ -34,7 +34,7 @@ def free_search_carrera(query: str = "", jornada: str = "", modalidad: str = "",
 
 def total_carreras(query, jornada, modalidad, nivel):
     session = SessionLocal()
-    q = "SELECT COUNT(C.NOMB_CARRERA) FROM hito3.carrera C WHERE 1=1"
+    q = "SELECT COUNT(C.NOMB_CARRERA) FROM public.carrera C WHERE 1=1"
     if query:
         q += " AND (C.NOMB_CARRERA LIKE :q OR C.NOMB_I LIKE :q OR C.NOMB_S LIKE :q)"
     if jornada:
