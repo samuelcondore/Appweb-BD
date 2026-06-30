@@ -4,8 +4,8 @@ from sqlalchemy import create_engine, Column, Integer, BigInteger, String, DateT
 from sqlalchemy.orm import sessionmaker, declarative_base, relationship
 
 DB_NAME = "public"
-DB_USERNAME = "cc5002"
-DB_PASSWORD = "programacionweb"
+DB_USERNAME = "realwebuser"
+DB_PASSWORD = "contrasena"
 DB_HOST = "localhost"
 DB_PORT = 5432
 DATABASE_URL = f"postgresql+psycopg2://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
