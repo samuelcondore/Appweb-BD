@@ -10,8 +10,9 @@
         <nav class="navbar">
             <a href="{{ url_for('portada') }}">Portada</a>
             <a href="{{ url_for('carreras') }}">Carreras</a>
-            <a href="{{ url_for('distr_genero') }}">Dist. Género</a>
+            <a href="{{ url_for('distr_genero') }}">Distribución Género</a>
             <a href="{{ url_for('over_thirty') }}">Personas sobre 30 años</a>
+            <a href="{{ url_for('carreras_caras') }}">Carreras más caras</a>
         </nav>
         <main>
             {% with messages = get_flashed_messages() %}
