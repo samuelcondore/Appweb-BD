@@ -51,9 +51,9 @@ def total_carreras(query, jornada, modalidad, nivel):
 def get_distr_genero(inst):
     session = SessionLocal()
     q = "SELECT CASE a.GEN_ALU WHEN 1 THEN 'Masculino' WHEN 2 THEN 'Femenino' END AS genero, COUNT(*) AS total" 
-    q += " FROM matricula m "
-    q += " JOIN Alumno a ON m.MRUN_A = a.MRUN"
-    q += " JOIN Institucion i ON m.NOMB_I = i.NOMB_INST"
+    q += " FROM public.matricula m "
+    q += " JOIN public.alumno a ON m.MRUN_A = a.MRUN"
+    q += " JOIN public.institucion i ON m.NOMB_I = i.NOMB_INST"
     q += " WHERE i.TIPO_INST = :i"
     q += " GROUP BY a.GEN_ALU"
     q += " ORDER BY total DESC;"
