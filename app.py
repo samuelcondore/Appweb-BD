@@ -1,8 +1,6 @@
-from flask import Flask, session, request, render_template, redirect, url_for, flash, jsonify, make_response
-from utils.validations import *
+from flask import Flask, request, render_template, redirect, url_for, flash, jsonify, make_response
 from database import db
 from math import ceil
-import os
 
 app = Flask(__name__)
 
