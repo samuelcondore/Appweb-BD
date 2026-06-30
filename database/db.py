@@ -76,11 +76,12 @@ def total_over_30(min: int = 500, page: int = 0, page_size: int = 20):
 
 def total_total_over_30(min: int = 500):
     session = SessionLocal()
-    q = "SELECT COUNT(MRUN_A)"
+    q = "SELECT COUNT(*) AS rows FROM ("
+    q += "SELECT COUNT(MRUN_A) AS total_alumnos, NOMB_I, JORN"
     q += " FROM public.alumnodetalle"
     q += " WHERE ANIO_NAC_ALU <= 1995"
     q += " GROUP BY NOMB_I, JORN"
-    q += " HAVING COUNT(MRUN_A) >= :m;"
+    q += " HAVING COUNT(MRUN_A) >= :m) AS orig_q;"
     result = session.execute(text(q), {"m": min}).one()
     session.close()
     return result
