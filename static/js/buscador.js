@@ -22,6 +22,7 @@ paginators.addEventListener('click', (e)=>{
 const searchbar = document.getElementById("searchbar");
 searchbar.addEventListener("input", async (e) => {
     e.preventDefault();
+    window.mypage = 0;
     const query = e.target.value.trim();
     const j = jornada.value;
     const n = nivel.value;
@@ -36,6 +37,7 @@ searchbar.addEventListener("input", async (e) => {
 const modalidad = document.getElementById("modalidad");
 modalidad.addEventListener("change", async (e) => {
     e.preventDefault();
+    window.mypage = 0;
     const j = jornada.value;
     const n = nivel.value;
     const m = e.target.value;
@@ -46,6 +48,7 @@ modalidad.addEventListener("change", async (e) => {
 const nivel = document.getElementById("nivel");
 nivel.addEventListener("change", async (e) => {
     e.preventDefault();
+    window.mypage = 0;
     const j = jornada.value;
     const n = e.target.value;
     const m = modalidad.value;
@@ -56,6 +59,7 @@ nivel.addEventListener("change", async (e) => {
 const jornada = document.getElementById("jornada");
 jornada.addEventListener("change", async (e) => {
     e.preventDefault();
+    window.mypage = 0;
     const j = e.target.value;
     const n = nivel.value;
     const m = modalidad.value;
