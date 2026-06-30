@@ -19,6 +19,7 @@ paginators.addEventListener('click', (e)=>{
 const threshold = document.getElementById("threshold");
 threshold.addEventListener("change", async (e) => {
     e.preventDefault();
+    window.mypage = 0;
     const m = e.target.value;
     renderQueryResult(m);
 })
