@@ -18,7 +18,6 @@ def carreras():
         data = request.get_json()
         items_per_page = 20
         pagina = int(data.get("page")) 
-        print(pagina)
         query = data.get("query", "")
         jornada = data.get("jornada", "")
         modalidad = data.get("modalidad", "")
