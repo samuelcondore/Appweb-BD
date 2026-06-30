@@ -43,6 +43,21 @@ def distr_genero():
         body = {"result": [dict(row._mapping) for row in data],
                 "abs_total": total}
         return jsonify(body)
+
+@app.route("/over_thirty", methods=["GET", "POST"])
+def over_thirty():
+    if request.method == "GET":
+        return render_template("over_thirty.html")
+    else:
+        data = request.get_json()
+        items_per_page = 10
+        pagina = int(data.get("page")) 
+        minimum = data.get("min", "")
+        total_paginas = ceil(int(db.total_total_over_30(minimum)[0])/items_per_page)
+        data = db.total_over_30(minimum, pagina, items_per_page)
+        body = {"total_paginas": total_paginas,
+                "data": [dict(row._mapping) for row in data]}
+        return jsonify(body)
     
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
