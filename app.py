@@ -6,10 +6,14 @@ app = Flask(__name__)
 
 app.secret_key = "s3cr3t_k3y"
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/")
 def portada():
+    return render_template("portada.html")
+
+@app.route("/carreras", methods=["GET", "POST"])
+def carreras():
     if request.method == "GET":
-        return render_template("portada.html")
+        return render_template("carreras.html")
     else:
         data = request.get_json()
         items_per_page = 20
@@ -24,7 +28,6 @@ def portada():
         body = {"total_paginas": total_paginas,
                 "carreras": [dict(row._mapping) for row in carreras]}
         return jsonify(body)
-
 
 
     
