@@ -47,3 +47,16 @@ def total_carreras(query, jornada, modalidad, nivel):
     result = session.execute(text(q), {"q": f"%{query.upper()}%", "j": jornada, "m": modalidad, "n": nivel}).one()
     session.close()
     return result
+
+def get_distr_genero(inst):
+    session = SessionLocal()
+    q = "SELECT CASE a.GEN_ALU WHEN 1 THEN 'Masculino' WHEN 2 THEN 'Femenino' END AS genero, COUNT(*) AS total" 
+    q += " FROM matricula m "
+    q += " JOIN Alumno a ON m.MRUN_A = a.MRUN"
+    q += " JOIN Institucion i ON m.NOMB_I = i.NOMB_INST"
+    q += " WHERE i.TIPO_INST = :i"
+    q += " GROUP BY a.GEN_ALU"
+    q += " ORDER BY total DESC;"
+    result = session.execute(text(q), {"i": inst}).all()
+    session.close()
+    return result
