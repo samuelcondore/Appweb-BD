@@ -39,7 +39,7 @@ async function renderQueryResult(i) {
     } else {
         const abs_total = Number(queryResult.abs_total);
         let tablecontents = queryResult.result.map(c => {
-            return `<tr><td>${c.nomb_carrera}</td><td>${c.institucion}</td><td>$${c.arancel_promedio}%</td></tr>`;
+            return `<tr><td>${c.nomb_carrera}</td><td>${c.institucion}</td><td>$${Intl.NumberFormat('de-DE').format(c.arancel_promedio)}</td></tr>`;
         }).join("");
         table.innerHTML = tablecontents;
     }
