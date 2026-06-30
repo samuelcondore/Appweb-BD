@@ -28,7 +28,21 @@ def carreras():
                 "carreras": [dict(row._mapping) for row in carreras]}
         return jsonify(body)
 
-
+@app.route("/distr_genero", methods=["GET", "POST"])
+def distr_genero():
+    if request.method == "GET":
+        return render_template("distr_genero.html")
+    else:
+        data = request.get_json()
+        institucion = data.get("institucion")
+        data = db.get_distr_genero(institucion)
+        total = 0
+        for r in data:
+            total += r.total
+        print([dict(row._mapping) for row in data])
+        body = {"result": [dict(row._mapping) for row in data],
+                "abs_total": total}
+        return jsonify(body)
     
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
