@@ -9,7 +9,7 @@
     <body>
         <nav class="navbar">
             <a href="{{ url_for('portada') }}">Portada</a>
-            <a>Estadísticas</a>
+            <a href="{{ url_for('carreras') }}">Carreras</a>
         </nav>
         <main>
             {% with messages = get_flashed_messages() %}
