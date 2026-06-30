@@ -1,4 +1,4 @@
-window.mypage = 0;
+
 const table = document.getElementById("search_results");
 
 const institucion = document.getElementById("institucion");
