@@ -27,6 +27,11 @@
     grid-template-columns: 50% 50%;
 }
 
+.container-caras {
+    display: grid;
+    grid-template-columns: 100%;
+}
+
 .container-oldnbald {
     display: grid;
     grid-template-columns: 100%;
