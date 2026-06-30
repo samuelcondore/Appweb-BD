@@ -85,3 +85,14 @@ def total_total_over_30(min: int = 500):
     result = session.execute(text(q), {"m": min}).one()
     session.close()
     return result
+
+def get_carreras_caras(nivel: str = ""):
+    session = SessionLocal()
+    q = "SELECT c.NOMB_CARRERA, c.NOMB_I AS institucion, ROUND(AVG(c.VALOR_ARANCEL)) AS arancel_promedio"
+    q += " FROM public.carrera c"
+    q += " WHERE c.NIVEL_CARRERA = :n AND c.VALOR_ARANCEL IS NOT NULL"
+    q += " GROUP BY c.NOMB_CARRERA, c.NOMB_I"
+    q += " ORDER BY arancel_promedio DESC LIMIT 10;"
+    result = session.execute(text(q), {"n": nivel}).all()
+    session.close()
+    return result
