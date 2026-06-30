@@ -29,7 +29,7 @@
 
 .container-oldnbald {
     display: grid;
-    grid-template-columns: 100%;
+    grid-template-columns: 70% 30%;
 }
 
 select {
