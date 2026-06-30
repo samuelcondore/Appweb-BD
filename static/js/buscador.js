@@ -104,8 +104,8 @@ async function renderQueryResult(query, j, n, m) {
         const regex = new RegExp(query, "gi");
         let tablecontents = queryResult.carreras.map(c => {
             return `<tr><td>${c.nomb_carrera}</td><td>${c.jornada}</td><td>${c.nomb_s}</td><td>${c.nomb_i}</td>
-            <td>${c.modalidad}</td><td>${c.dur_total_carr}</td><td>${c.nivel_carrera}</td><td>${Intl.NumberFormat('de-DE').format(c.valor_arancel)}</td>
-            <td>${Intl.NumberFormat('de-DE').format(c.valor_matricula)}</td><td>${c.formato_valores}</td></tr>`;
+            <td>${c.modalidad}</td><td>${c.dur_total_carr}</td><td>${c.nivel_carrera}</td><td>$${Intl.NumberFormat('de-DE').format(c.valor_arancel)}</td>
+            <td>$${Intl.NumberFormat('de-DE').format(c.valor_matricula)}</td><td>${c.formato_valores}</td></tr>`;
         }).join("");
         if (query.length>3){
         table.innerHTML = tablecontents.replaceAll(regex, "<mark>$&</mark>");;
